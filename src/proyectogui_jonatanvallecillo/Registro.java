@@ -186,21 +186,17 @@ public class Registro extends javax.swing.JFrame {
         
         if(cuentas1.size() > 0){
             for(int i = 0; i < cuentas1.size(); i++){
-                System.out.println("ES1 = "+cuentas1.get(i));
                 numcuenta1 = cuentas1.get(i);
                 conteo = 0;
                 
                 if(size > 0){
                     for(int j = 0; j < size; j++){
-                        System.out.println("ES2 = "+cuentas2.get(j));
                         numcuenta2 = cuentas2.get(j);
                         if(numcuenta1.equals(numcuenta2)){
                             cuentas2.remove(j);
                             conteo ++;
                             j --;
                             size --;
-                            System.out.println("size= "+size);
-                            System.out.println("conteo= "+conteo);
                         }
                     }
 

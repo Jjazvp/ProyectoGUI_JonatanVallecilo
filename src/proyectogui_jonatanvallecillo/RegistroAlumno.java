@@ -221,7 +221,7 @@ public class RegistroAlumno extends javax.swing.JPanel {
                             Estudiante estudiante = new Estudiante();
 
                             estudiante.setNumeroCuenta(textCuenta.getText());
-                            estudiante.setCodigoClase(textClase.getText());
+                            estudiante.setCodigoClase(nuevocod);
                             estudiante.setAño(Integer.parseInt(textAño.getText().toString()));
                             estudiante.setNumSec(Integer.parseInt(textSeccion.getText().toString()));
                             estudiantes.add(estudiante);
