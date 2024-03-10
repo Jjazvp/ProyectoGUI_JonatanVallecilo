@@ -170,74 +170,49 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_BusquedasActionPerformed
 
     private void ConteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConteoActionPerformed
-        Estudiante estudiante = new Estudiante();
-        estudiante.setNumeroCuenta("12345678");
-        estudiante.setCodigoClase("CCC123");
-        estudiante.setAño(2024);
-        estudiante.setNumSec(123);
-        estudiantes.add(estudiante);
-        /*estudiante.setNumeroCuenta("12345677");
-        estudiante.setCodigoClase("CCC123");
-        estudiante.setAño(2024);
-        estudiante.setNumSec(123);
-        estudiantes.add(estudiante);
-        estudiante.setNumeroCuenta("12345678");
-        estudiante.setCodigoClase("LCP123");
-        estudiante.setAño(2024);
-        estudiante.setNumSec(123);
-        estudiantes.add(estudiante);
-        estudiante.setNumeroCuenta("12345677");
-        estudiante.setCodigoClase("LCP123");
-        estudiante.setAño(2024);
-        estudiante.setNumSec(123);
-        estudiantes.add(estudiante);
-        estudiante.setNumeroCuenta("12345666");
-        estudiante.setCodigoClase("TEL123");
-        estudiante.setAño(2024);
-        estudiante.setNumSec(345);
-        estudiantes.add(estudiante);*/
-        
-        
-        
-        
-        int conteo = 0;
-        ArrayList <Estudiante> Estudiantes = estudiantes;
-        ArrayList <Estudiante> Estudiantes2 = Estudiantes;
-        
+        ArrayList <String> cuentas1 = new ArrayList <String>();
+        ArrayList <String> cuentas2 = new ArrayList <String>();
         for(int i = 0; i < estudiantes.size(); i++){
             Estudiante estudiante1 = estudiantes.get(i);
-            System.out.println(estudiante1.getNumeroCuenta());
+            cuentas1.add(estudiante1.getNumeroCuenta());
+            cuentas2.add(estudiante1.getNumeroCuenta());
         }
         
-        if(estudiantes.size() > 0){
-            String mensaje = "ESTUDIANTES MATRICULADOS:\n";
-            int size = Estudiantes.size();
-            for(int i = 0; i < estudiantes.size(); i++){
-                Estudiante estudiante1 = estudiantes.get(i);
-                System.out.println("Es1="+estudiante1.getNumeroCuenta());
+        int size = cuentas2.size();
+        int conteo = 0;
+        String mensaje= "";
+        String numcuenta1 = "";
+        String numcuenta2 = "";
+        
+        if(cuentas1.size() > 0){
+            for(int i = 0; i < cuentas1.size(); i++){
+                System.out.println("ES1 = "+cuentas1.get(i));
+                numcuenta1 = cuentas1.get(i);
                 conteo = 0;
-
+                
                 if(size > 0){
                     for(int j = 0; j < size; j++){
-                        System.out.println("ES2 size= "+Estudiantes2.size());
-                        Estudiante estudiante2 = Estudiantes2.get(j);
-                        System.out.println("Es2="+estudiante2.getNumeroCuenta());
-                        if(estudiante1.getNumeroCuenta() == estudiante2.getNumeroCuenta()){
-                            Estudiantes2.remove(j);
+                        System.out.println("ES2 = "+cuentas2.get(j));
+                        numcuenta2 = cuentas2.get(j);
+                        if(numcuenta1.equals(numcuenta2)){
+                            cuentas2.remove(j);
                             conteo ++;
+                            j --;
+                            size --;
+                            System.out.println("size= "+size);
+                            System.out.println("conteo= "+conteo);
                         }
-                        System.out.println("conteo "+conteo);
+                    }
+
+                    if(conteo > 0){
+                        mensaje += cuentas1.get(i)+" - "+conteo+"\n";
                     }
                 }
-                size -= conteo;
-                if(conteo > 0){
-                    mensaje += estudiante1.getNumeroCuenta()+" - "+conteo+"\n";
-                }
             }
-            JOptionPane.showMessageDialog(null, mensaje);
-        
+            
+            JOptionPane.showMessageDialog(null,mensaje);
         }else{
-            JOptionPane.showMessageDialog(null, "Lo sentimos, no hay datos registrados.");
+            JOptionPane.showMessageDialog(null, "Lo sentimos, no hay datos registrados aun.");
         }
     }//GEN-LAST:event_ConteoActionPerformed
 
