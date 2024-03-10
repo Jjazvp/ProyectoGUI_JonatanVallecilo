@@ -47,9 +47,4 @@ public class Estudiante {
     public void setNumSec(int numSec) {
         this.numSec = numSec;
     }
-
-    @Override
-    public String toString() {
-        return "Estudiante{" + "numeroCuenta=" + numeroCuenta + ", codigoClase=" + codigoClase + ", A\u00f1o=" + Año + ", numSec=" + numSec + '}';
-    }
 }

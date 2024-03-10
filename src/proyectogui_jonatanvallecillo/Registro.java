@@ -15,14 +15,27 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         contenedor = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Inicio = new javax.swing.JButton();
         Busquedas = new javax.swing.JButton();
         Conteo = new javax.swing.JButton();
         RegistrarAlumno = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -31,38 +44,50 @@ public class Registro extends javax.swing.JFrame {
         contenedor.setMinimumSize(new java.awt.Dimension(392, 408));
         contenedor.setPreferredSize(new java.awt.Dimension(392, 408));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectogui_jonatanvallecillo/hawie.png"))); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+
         jLabel1.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido jaguar!");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectogui_jonatanvallecillo/hawie.png"))); // NOI18N
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(116, 116, 116))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorLayout.createSequentialGroup()
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))
-                    .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(102, 102, 102))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
 
-        Inicio.setBackground(new java.awt.Color(0, 0, 102));
+        Inicio.setBackground(new java.awt.Color(255, 255, 255));
+        Inicio.setForeground(new java.awt.Color(255, 255, 255));
         Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectogui_jonatanvallecillo/unitec_logo.jpg"))); // NOI18N
         Inicio.setMargin(new java.awt.Insets(0, 0, 0, 0));
         Inicio.addActionListener(new java.awt.event.ActionListener() {
@@ -111,15 +136,15 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Busquedas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RegistrarAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Conteo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(RegistrarAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(Conteo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Inicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 131, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(RegistrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -136,12 +161,12 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -149,18 +174,18 @@ public class Registro extends javax.swing.JFrame {
 
     private void RegistrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarAlumnoActionPerformed
         RegistroAlumno regAlum = new RegistroAlumno(estudiantes);
-        regAlum.setSize(391,408);
+        regAlum.setSize(472,408);
         regAlum.setLocation(0,0);
         
-        contenedor.removeAll();
-        contenedor.add(regAlum);
-        contenedor.revalidate();
-        contenedor.repaint();
+        contenedor.removeAll(); //Insertar la interfaz de la clase RegistrarAlumno dentro del panel de Registro
+        contenedor.add(regAlum); //Insertar la interfaz de la clase RegistrarAlumno dentro del panel de Registro
+        contenedor.revalidate(); //Insertar la interfaz de la clase RegistrarAlumno dentro del panel de Registro
+        contenedor.repaint(); //Insertar la interfaz de la clase RegistrarAlumno dentro del panel de Registro
     }//GEN-LAST:event_RegistrarAlumnoActionPerformed
 
     private void BusquedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedasActionPerformed
         Busquedas busquedas = new Busquedas(estudiantes);
-        busquedas.setSize(391,408);
+        busquedas.setSize(472,408);
         busquedas.setLocation(0,0);
         
         contenedor.removeAll();
@@ -172,6 +197,7 @@ public class Registro extends javax.swing.JFrame {
     private void ConteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConteoActionPerformed
         ArrayList <String> cuentas1 = new ArrayList <String>();
         ArrayList <String> cuentas2 = new ArrayList <String>();
+        
         for(int i = 0; i < estudiantes.size(); i++){
             Estudiante estudiante1 = estudiantes.get(i);
             cuentas1.add(estudiante1.getNumeroCuenta());
@@ -189,8 +215,8 @@ public class Registro extends javax.swing.JFrame {
                 numcuenta1 = cuentas1.get(i);
                 conteo = 0;
                 
-                if(size > 0){
-                    for(int j = 0; j < size; j++){
+                if(size > 0){ 
+                    for(int j = 0; j < size; j++){ 
                         numcuenta2 = cuentas2.get(j);
                         if(numcuenta1.equals(numcuenta2)){
                             cuentas2.remove(j);
@@ -214,7 +240,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
         RegInicio inicio = new RegInicio();
-        inicio.setSize(391,408);
+        inicio.setSize(472,408);
         inicio.setLocation(0,0);
         
         contenedor.removeAll();
@@ -229,8 +255,10 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton Inicio;
     private javax.swing.JButton RegistrarAlumno;
     private javax.swing.JPanel contenedor;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

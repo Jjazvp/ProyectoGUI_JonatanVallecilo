@@ -13,16 +13,10 @@ public class Busquedas extends javax.swing.JPanel {
         initComponents();
         this.estudiantes = estudiantes;
         
-        String atributos [] = {"Cuenta", "Codigo", "Año", "Seccion"};
+        String atributos [] = {"Cuenta", "Codigo", "Año", "Seccion"}; //Se establecen los nombres de las columnas
         tabla.setColumnIdentifiers(atributos);
         
         Tabla.setModel(tabla);
-    }
-    
-    public static void yo(ArrayList <Estudiante> estudiantes){
-        Estudiante estudiante = new Estudiante();
-        String nc = estudiante.getNumeroCuenta();
-        JOptionPane.showMessageDialog(null, nc);
     }
 
     @SuppressWarnings("unchecked")
@@ -55,11 +49,11 @@ public class Busquedas extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel1.setText("Ingrese la búqueda que desea");
+        jLabel1.setText("Ingrese la búqueda que desea  (utilice espacios)*");
 
         BarraDeBusqueda.setBackground(new java.awt.Color(255, 255, 255));
         BarraDeBusqueda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BarraDeBusqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153), 2));
+        BarraDeBusqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255), 2));
         BarraDeBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BarraDeBusquedaActionPerformed(evt);
@@ -80,6 +74,8 @@ public class Busquedas extends javax.swing.JPanel {
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("cuenta, codigo, año, seccion*");
 
+        Tabla.setBackground(new java.awt.Color(255, 255, 255));
+        Tabla.setFont(new java.awt.Font("Segoe UI Emoji", 0, 12)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -91,6 +87,11 @@ public class Busquedas extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabla.setToolTipText("");
+        Tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Tabla.setSelectionBackground(new java.awt.Color(255, 51, 51));
+        Tabla.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        Tabla.setShowGrid(true);
         jScrollPane3.setViewportView(Tabla);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -101,19 +102,16 @@ public class Busquedas extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                        .addGap(46, 46, 46))
+                        .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                        .addGap(76, 76, 76))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                        .addGap(8, 8, 8))
-                    .addComponent(BarraDeBusqueda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
-                .addGap(43, 43, 43))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BarraDeBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,12 +137,12 @@ public class Busquedas extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        tabla.setRowCount(0);
+        tabla.setRowCount(0); //Elimina los datos de la tabla para ser reutilizada y así, no ir acumulando datos de búsquedas pasadas
         Tabla.setModel(tabla);
         String busqueda = BarraDeBusqueda.getText();
         String atributo = "";
@@ -152,7 +150,7 @@ public class Busquedas extends javax.swing.JPanel {
         String valor = "";
         
         int cont = 0;
-        for(int i = 0; i < busqueda.length(); i++){
+        for(int i = 0; i < busqueda.length(); i++){ //Ciclo que divide lo que ingresa el usuario, la división se realiza cada vez que se detecta un espacio ' '
             if(busqueda.charAt(i) != ' ' && cont == 0){
                 atributo += busqueda.charAt(i);
             }else if(busqueda.charAt(i) == ' ' && cont == 0){
@@ -208,14 +206,14 @@ public class Busquedas extends javax.swing.JPanel {
         BarraDeBusqueda.setText("");
     }//GEN-LAST:event_BuscarActionPerformed
 
-    public static void igual(ArrayList estudiantes, String atributo, String valor){
+    public static void igual(ArrayList estudiantes, String atributo, String valor){ //Método que evalúa la cadena ingresada a partir de ser una operación con "="
         Estudiante estudiante = new Estudiante();
         
         int valor2 = 0;
         String codletras = "";
         String codletras2 = "";
         int codnumeros = 0;
-        if(atributo.equals("codigo")){
+        if(atributo.equals("codigo")){ //Divide al código en 2 cadenas: 1 que contenga las letras y la otra que contenga los números
             codletras = valor.substring(0, 2);
             codletras2 = codletras.toUpperCase();
             codnumeros = Integer.parseInt(valor.substring(3, 5));
@@ -223,13 +221,13 @@ public class Busquedas extends javax.swing.JPanel {
             valor2 = Integer.parseInt(valor);
         }
         
-        for(int i = 0; i < estudiantes.size(); i++){
+        for(int i = 0; i < estudiantes.size(); i++){ //For que compara el valor ingresado por el usuario, a todos los valores del arraylist estudiantes
             estudiante = (Estudiante) estudiantes.get(i);
             
             String codletras3 = " ";
             String codletras4 = "";
             int codnumeros2 = 1;
-            if(atributo.equals("codigo")){
+            if(atributo.equals("codigo")){ //Si el atributo es "codigo", divide a la sting del arraylist en dos partes
                 codletras3 = estudiante.getCodigoClase().substring(0, 2);
                 codletras4 = codletras3.toUpperCase();
                 codnumeros2 = Integer.parseInt(estudiante.getCodigoClase().substring(3, 5));
@@ -237,59 +235,52 @@ public class Busquedas extends javax.swing.JPanel {
             
             if(estudiante.getNumeroCuenta().equals(valor) || estudiante.getCodigoClase().equals(valor) || estudiante.getAño() == valor2 || estudiante.getNumSec() == valor2
                     || (codletras2.equals(codletras4) && (codnumeros == codnumeros2))){
-                tabla.addRow(new Object[]{
+                tabla.addRow(new Object[]{ //Agrega los elementos al obejto tabla del DefaultTableModel
                     estudiante.getNumeroCuenta(), estudiante.getCodigoClase(), estudiante.getAño(), estudiante.getNumSec()
                 });
-                Tabla.setModel(tabla);
+                Tabla.setModel(tabla); //Los elementos previamente mencionados se agregan a la tabla 
             }
         }
     }
     
-    public static void desigual(ArrayList estudiantes, String atributo, String valor){
+    public static void desigual(ArrayList estudiantes, String atributo, String valor){ //Método que evalúa la cadena ingresada a partir de ser una operación con "!="
         Estudiante estudiante = new Estudiante();
         
+        boolean igual = false;
         int valor2 = 0;
         String codletras = "";
-        int codletras2 = 0;
         int codnumeros = 0;
-        if(atributo.equals("codigo")){
-            codletras = valor.substring(0, 2);
-            char carac = ' ';
-            for(int i = 0; i < codletras.length(); i++){
-                carac = codletras.charAt(i);
-                codletras2 = (int) carac;
-            }
+        if(atributo.equals("codigo")){ //Divide al código en 2 cadenas: 1 que contenga las letras y la otra que contenga los números
+            codletras = valor.substring(0, 2).toUpperCase();
             codnumeros = Integer.parseInt(valor.substring(3, 5));
         }else{
             valor2 = Integer.parseInt(valor);
         }
         
         int cuenta = 0;
-        for(int i = 0; i < estudiantes.size(); i++){
+        for(int i = 0; i < estudiantes.size(); i++){ //For que compara el valor ingresado por el usuario, a todos los valores del arraylist estudiantes
             estudiante = (Estudiante) estudiantes.get(i);
             
-            String codletras3 = " ";
-            String codletras4 = "";
-            int codletras5 = 0;
+            String codletras2 = " ";
             int codnumeros2 = 1;
-            if(atributo.equals("codigo")){
-                codletras3 = estudiante.getCodigoClase().substring(0, 2);
-                codletras4 = codletras3.toUpperCase();
-                char carac = ' ';
-                for(int j = 0; j < codletras4.length(); j++){
-                    carac = codletras4.charAt(i);
-                    codletras5 += (int) carac;
-                }
+            if(atributo.equals("codigo")){ //Si el atributo es "codigo", divide a la sting del arraylist en dos partes
+                codletras2 = estudiante.getCodigoClase().substring(0, 2);
                 codnumeros2 = Integer.parseInt(estudiante.getCodigoClase().substring(3, 5));
             }
             
+            if(codletras.equals(codletras2)){
+                igual = true;
+            }else{
+                igual = false;
+            }
+            
             cuenta = Integer.parseInt(estudiante.getNumeroCuenta()); 
-            if(cuenta != valor2 && atributo.equals("cuenta")){
+            if(cuenta != valor2 && atributo.equals("cuenta")){ //If que evalúa si el valor ingresado es diferente al de los elementos de la arraylist
                 tabla.addRow(new Object[]{
                     estudiante.getNumeroCuenta(), estudiante.getCodigoClase(), estudiante.getAño(), estudiante.getNumSec()
                 });
                 Tabla.setModel(tabla);
-            }else if((codletras2 != codletras5 && codnumeros != codnumeros2) && atributo.equals("codigo")){
+            }else if(igual == false && atributo.equals("codigo")){
                 tabla.addRow(new Object[]{
                     estudiante.getNumeroCuenta(), estudiante.getCodigoClase(), estudiante.getAño(), estudiante.getNumSec()
                 });
